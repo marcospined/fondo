@@ -48,6 +48,7 @@ public class MyGdxGame implements ApplicationListener {
 	
 	
 	
+	
 	@Override
 	public void create()
 	{		
@@ -76,6 +77,7 @@ public class MyGdxGame implements ApplicationListener {
 		i=new Image(texture);
 		s.addActor(i);
 		
+		Gdx.input.setInputProcessor(s);
 		for(int i=0;i<5;i++)
 		{
 			sprites.add(new Sprite(texture));
@@ -96,10 +98,13 @@ public class MyGdxGame implements ApplicationListener {
 			PelotitaMala m =new PelotitaMala((int)(Math.random()*1000%w),(int)(Math.random()*1000%h));
 			s.addActor(m);
 			Pelotitasm.add(m);
-			
 		}
-				
-		Gdx.input.setInputProcessor(s);
+		
+		inicio listener = new inicio();
+		s.addActor(listener);
+		
+		
+	
 		
 	}
 
@@ -122,8 +127,8 @@ public class MyGdxGame implements ApplicationListener {
 		
 		s.act();
 		s.draw();
-		if (frame % 100 ==0) s.addActor(new Pelotita(1,50));
-		frame ++;
+		/*if (frame % 100 ==0) s.addActor(new Pelotita(1,50));
+		frame ++;/*/
 		
 	}
 
